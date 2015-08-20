@@ -6,11 +6,7 @@ function TransitMeters(origin, destination) {
   if (cachedValue != null) {
     return cachedValue;
   }
-  //FIXME: this is just to test if cache adding and retreival works
-  addToCache(keyName, 2 * 1609.34);
-  return 1609.34
 
-  /* //Uncomment soon
   origin = convertStationNameToLatLong(origin);
   destination = convertStationNameToLatLong(destination);
 
@@ -22,7 +18,6 @@ function TransitMeters(origin, destination) {
   var distance = directions.routes[0].legs[0].distance.value;
   addToCache(keyName, distance);
   return distance;
-  */
 }
 
 function TransitMiles(origin, destination) {
