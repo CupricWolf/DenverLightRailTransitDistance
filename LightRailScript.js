@@ -2,6 +2,10 @@ var cache = CacheService.getPublicCache();
 
 function TransitMeters(origin, destination) {
   var keyName = makeKeyname(origin, destination);
+  if (origin == "ignore" || destination == "ignore") {
+    addToCache(keyName, 0);
+    return 0;
+  }
   var cachedValue = getCachedValue(keyName);
   if (cachedValue != null) {
     return cachedValue;
@@ -80,8 +84,11 @@ function convertStationNameToLatLong(input) {
     input = "39.655316, -104.999952";
   } else if (toTest == "countyline") {
     input = "39.561854, -104.872301";
+  } else if (toTest == "") {
+    input = "ignore";
   }  else {
-    throw "Station \"" + input + "\" not found. Use code \"" + toTest + "\".";  // Simplify adding new stations
+    // Simplify adding new stations
+    throw "Station \"" + input + "\" not found. Use code \"" + toTest + "\".";
   }  // Add more when they are used.
 
   return input;
