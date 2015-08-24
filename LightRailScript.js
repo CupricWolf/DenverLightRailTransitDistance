@@ -1,11 +1,11 @@
 var cache = CacheService.getUserCache();
 
 function TransitMeters(origin, destination) {
-  var keyName = makeKeyname(origin, destination);
   if (origin == "ignore" || destination == "ignore") {
-    addToCache(keyName, 0);
-    return 0;
+    return 0; // Empty cells, no distance
   }
+
+  var keyName = makeKeyname(origin, destination);
   var cachedValue = getCachedValue(keyName);
   if (cachedValue != null) {
     return cachedValue;
@@ -31,7 +31,8 @@ function TransitMiles(origin, destination) {
 function makeKeyname(origin, destination) {
   var combined = origin + destination;
   combined = combined.replace(/\s+/g, '').toLowerCase();
-  combined = combined.split('').sort().join('')
+  combined = combined.split('').sort().join('');
+  return combined;
 }
 
 function getCachedValue(keyName) {
