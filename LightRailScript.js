@@ -1,4 +1,4 @@
-var cache = CacheService.getPublicCache();
+var cache = CacheService.getUserCache();
 
 function TransitMeters(origin, destination) {
   var keyName = makeKeyname(origin, destination);
