@@ -73,7 +73,7 @@ function convertStationNameToLatLong(input) {
     input = "39.735000, -105.053333";
   }  else if (toTest == "perry") {
     input = "39.734693, -105.039567";
-  }  else if (input == "knox") {
+  }  else if (toTest == "knox") {
     input = "39.735700, -105.033280";
   }  else if (toTest == "aurariawest") {
     input = "39.741302, -105.010696";
