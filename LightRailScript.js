@@ -46,7 +46,7 @@ function getCachedValue(keyName) {
 
 function addToCache(key, numericValue) {
   var stringVaule = numericValue.toString();
-  cache.put(key, stringVaule);
+  cache.put(key, stringVaule, 86400); // One day cache to avoid the daily limit
 }
 
 function convertStationNameToLatLong(input) {
