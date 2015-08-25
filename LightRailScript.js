@@ -1,10 +1,6 @@
 var cache = CacheService.getUserCache();
 
 function TransitMeters(origin, destination) {
-  if (origin == "ignore" || destination == "ignore") {
-    return 0; // Empty cells, no distance
-  }
-
   var keyName = makeKeyname(origin, destination);
   var cachedValue = getCachedValue(keyName);
   if (cachedValue != null) {
@@ -85,8 +81,6 @@ function convertStationNameToLatLong(input) {
     input = "39.655316, -104.999952";
   } else if (toTest == "countyline") {
     input = "39.561854, -104.872301";
-  } else if (toTest == "") {
-    input = "ignore";
   }  else {
     // Simplify adding new stations
     throw "Station \"" + input + "\" not found. Use code \"" + toTest + "\".";
